@@ -240,4 +240,10 @@ function dirt_install() {
     'strong' => t('Strong'),
     'em' => t('Emphasized'),
   ));
+
+  // Logintoboggan enhancements
+  variable_set('logintoboggan_login_successful_message', TRUE);
+  variable_set('logintoboggan_minimum_password_length', 8);
+  // Show login page on 403 Access Denied pages
+  variable_set('site_403', 'toboggan/denied');
 }
