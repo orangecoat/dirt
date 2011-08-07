@@ -1,0 +1,84 @@
+name = Dirt
+description = OrangeCoat's base installation profile
+core = 7.x
+
+; Core
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = dblog
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = image
+dependencies[] = menu
+dependencies[] = overlay
+dependencies[] = path
+dependencies[] = shortcut
+dependencies[] = taxonomy
+dependencies[] = toolbar
+dependencies[] = update
+dependencies[] = user
+
+; Views
+dependencies[] = views_ui
+dependencies[] = views_content
+dependencies[] = views_content
+dependencies[] = nodequeue
+
+; Context
+dependencies[] = context_ui
+
+; Date
+dependencies[] = date
+dependencies[] = date_views
+
+; Devel
+dependencies[] = devel_generate
+
+; Fields
+dependencies[] = email
+dependencies[] = link
+
+; Front-end
+dependencies[] = html5_tools
+dependencies[] = elements
+dependencies[] = modernizr
+
+; WYSIWYG
+dependencies[] = wysiwyg
+dependencies[] = imce_wysiwyg
+dependencies[] = ckeditor
+
+; CAPTCHA
+dependencies[] = captcha
+dependencies[] = textcaptcha
+
+; Paths & Redirects
+dependencies[] = pathauto
+dependencies[] = redirect
+dependencies[] = globalredirect
+
+; Panels
+dependencies[] = panels_node
+
+; SEO
+dependencies[] = metatags_quick
+dependencies[] = xmlsitemap_menu
+dependencies[] = xmlsitemap_node
+
+; Performance
+dependencies[] = labjs
+
+; Misc
+dependencies[] = filefield_paths
+dependencies[] = logintoboggan
+dependencies[] = menu_block
+dependencies[] = securepages
+dependencies[] = token
+dependencies[] = transliteration
+dependencies[] = jquery_update
+dependencies[] = webform
+dependencies[] = spamspan
+
+files[] = dirt.profile
