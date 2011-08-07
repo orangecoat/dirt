@@ -55,6 +55,7 @@ dependencies[] = textcaptcha
 
 ; Paths & Redirects
 dependencies[] = pathauto
+dependencies[] = pathologic
 dependencies[] = redirect
 dependencies[] = globalredirect
 
