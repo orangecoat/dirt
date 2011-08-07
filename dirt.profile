@@ -214,6 +214,10 @@ function dirt_install() {
       'block_formats' => "p,address,pre,h2,h3,h4,h5,h6,div",
     ))))
     ->execute();
+  // IMCE settings
+  // This is kinda convoluted, but it assigns the 'User-1', unlimited access
+  // IMCE profile ("1"), to the user role "administrator" ("3")
+  variable_set('imce_roles_profiles', array('3' => array('public_pid' => 1)));
 
   // Add some helpful elements to views options
   variable_set('views_field_rewrite_elements', array(
