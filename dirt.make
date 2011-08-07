@@ -85,9 +85,6 @@ projects[transliteration][subdir] = "contrib"
 projects[panels][version] = 3.0-alpha3
 projects[panels][type] = "module"
 projects[panels][subdir] = "contrib"
-projects[ckeditor][version] = 1.2
-projects[ckeditor][type] = "module"
-projects[ckeditor][subdir] = "contrib"
 projects[jquery_update][version] = 2.2
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
@@ -135,4 +132,5 @@ projects[skeleton][download][url] = "git://github.com/orangecoat/skeleton.git"
 ; ---------
 libraries[labjs][download][type] = file
 libraries[labjs][download][url] = http://labjs.com/releases/LABjs-2.0.1.tar.gz
-
+libraries[tinymce][download][type] = file
+libraries[tinymce][download][url] = https://github.com/downloads/tinymce/tinymce/tinymce_3.4.4.zip
