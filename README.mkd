@@ -1,0 +1,5 @@
+# Dirt
+
+OrangeCoat's installation profile with accompanying makefile. Meant to be used
+in conjunction with [the shovel](http://github.com/orangecoat/shovel), but it
+can be used with any core distribution or makefile.
