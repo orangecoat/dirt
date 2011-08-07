@@ -250,4 +250,13 @@ function dirt_install() {
   // Menu block config
   variable_set('menu_block_suppress_core', TRUE);
   variable_set('menu_block_menu_order', array('main-menu' => ''));
+
+  // Captcha config
+  variable_set('captcha_administration_mode', TRUE);
+  variable_set('captcha_default_challenge', 'textcaptcha/Text Captcha');
+  // Wait until final installation process via the shovel's shell script
+  // to prompt the user for the textcaptcha API key so we don't have to store
+  // it in the open here
+  variable_set('textcaptcha_cache_limit', 2); // 2 actually means 20... weird.
+
 }
