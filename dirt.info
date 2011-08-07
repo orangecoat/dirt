@@ -60,7 +60,7 @@ dependencies[] = redirect
 dependencies[] = globalredirect
 
 ; Panels
-dependencies[] = panels_node
+dependencies[] = panels_ipe
 
 ; SEO
 dependencies[] = metatags_quick

@@ -16,9 +16,6 @@ api = 2
 
 ; Modules
 ; --------
-projects[admin][version] = 2.0-beta3
-projects[admin][type] = "module"
-projects[admin][subdir] = "contrib"
 projects[ctools][version] = 1.0-rc1
 projects[ctools][type] = "module"
 projects[ctools][subdir] = "contrib"
@@ -76,9 +73,6 @@ projects[pathologic][subdir] = "contrib"
 projects[securepages][version] = 1.x-dev
 projects[securepages][type] = "module"
 projects[securepages][subdir] = "contrib"
-projects[strongarm][version] = 2.0-beta2
-projects[strongarm][type] = "module"
-projects[strongarm][subdir] = "contrib"
 projects[token][version] = 1.0-beta3
 projects[token][type] = "module"
 projects[token][subdir] = "contrib"
