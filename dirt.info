@@ -47,7 +47,6 @@ dependencies[] = elements
 ; WYSIWYG
 dependencies[] = wysiwyg
 dependencies[] = imce_wysiwyg
-dependencies[] = ckeditor
 
 ; CAPTCHA
 dependencies[] = captcha
