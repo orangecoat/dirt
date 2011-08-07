@@ -246,4 +246,8 @@ function dirt_install() {
   variable_set('logintoboggan_minimum_password_length', 8);
   // Show login page on 403 Access Denied pages
   variable_set('site_403', 'toboggan/denied');
+
+  // Menu block config
+  variable_set('menu_block_suppress_core', TRUE);
+  variable_set('menu_block_menu_order', array('main-menu' => ''));
 }
