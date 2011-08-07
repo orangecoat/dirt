@@ -214,4 +214,30 @@ function dirt_install() {
       'block_formats' => "p,address,pre,h2,h3,h4,h5,h6,div",
     ))))
     ->execute();
+
+  // Add some helpful elements to views options
+  variable_set('views_field_rewrite_elements', array(
+    '' => t(' - Default - '),
+    '0' => t('- None -'),
+    'div' => t('Div'),
+    'span' => t('Span'),
+    'h1' => t('Heading 1'),
+    'h2' => t('Heading 2'),
+    'h3' => t('Heading 3'),
+    'h4' => t('Heading 4'),
+    'h5' => t('Heading 5'),
+    'h6' => t('Heading 6'),
+    'p' => t('Paragraph'),
+    'blockquote' => t('Blockquote'),
+    'article' => t('Article'),
+    'aside' => t('Aside'),
+    'footer' => t('Footer'),
+    'header' => t('Header'),
+    'menu' => t('Menu'),
+    'nav' => t('Nav'),
+    'time' => t('Time'),
+    'figure' => t('Figure'),
+    'strong' => t('Strong'),
+    'em' => t('Emphasized'),
+  ));
 }
