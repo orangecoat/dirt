@@ -5,10 +5,40 @@
 // would throw errors should we try to call standard_install()
 function dirt_install() {
   // Add text formats.
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Email obfuscator
+      'spamspan' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+      // Pathologic
+      'pathologic' => array(
+        'weight' => 50,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
   $filtered_html_format = array(
     'format' => 'filtered_html',
     'name' => 'Filtered HTML',
-    'weight' => 0,
+    'weight' => 1,
     'filters' => array(
       // URL filter.
       'filter_url' => array(
@@ -25,9 +55,19 @@ function dirt_install() {
         'weight' => 2,
         'status' => 1,
       ),
+      // Email obfuscator
+      'spamspan' => array(
+        'weight' => 3,
+        'status' => 1,
+      ),
       // HTML corrector filter.
       'filter_htmlcorrector' => array(
         'weight' => 10,
+        'status' => 1,
+      ),
+      // Pathologic
+      'pathologic' => array(
+        'weight' => 50,
         'status' => 1,
       ),
     ),
@@ -35,30 +75,7 @@ function dirt_install() {
   $filtered_html_format = (object) $filtered_html_format;
   filter_format_save($filtered_html_format);
 
-  $full_html_format = array(
-    'format' => 'full_html',
-    'name' => 'Full HTML',
-    'weight' => 1,
-    'filters' => array(
-      // URL filter.
-      'filter_url' => array(
-        'weight' => 0,
-        'status' => 1,
-      ),
-      // Line break filter.
-      'filter_autop' => array(
-        'weight' => 1,
-        'status' => 1,
-      ),
-      // HTML corrector filter.
-      'filter_htmlcorrector' => array(
-        'weight' => 10,
-        'status' => 1,
-      ),
-    ),
-  );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
+  drupal_set_message("Filtered HTML and Full HTML filter formats have been configured to use Pathologic. If this site is in a subdirectory, you should put `/[subdirectory]/` and `/` as options, in that order, the the Pathologic configuration of both filter formats.", "status");
 
   // Enable some standard blocks.
   $default_theme = variable_get('theme_default', 'bartik');
@@ -107,8 +124,8 @@ function dirt_install() {
   variable_set('user_picture_file_size', '800');
   variable_set('user_picture_style', 'thumbnail');
 
-  // Allow visitor account creation with administrative approval.
-  variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
+  // Only allow admins to create new user accounts
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
 
   // Enable default permissions for system roles.
   $filtered_html_permission = filter_permission_name($filtered_html_format);
@@ -148,4 +165,53 @@ function dirt_install() {
     ->execute();
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
+
+  // Securepages
+  if (securepages_test()) {
+    variable_set('securepages_enable', 1);
+  }
+  else {
+    drupal_set_message("Securepages not enabled because this installation didn't pass the test. You may need to manually configure securepages from the admin UI", "warning");
+  }
+  variable_set('securepages_switch', TRUE);
+  variable_set('securepages_secure', 1); // 1 = Only secure securepages_pages
+  variable_set('securepages_pages', SECUREPAGES_PAGES);
+  variable_set('securepages_ignore', SECUREPAGES_IGNORE);
+
+  // Set up filesystem
+  variable_set('file_public_path', 'files');
+  variable_set('file_temporary_path', '/tmp');
+
+  // WYSIWYG Configuration
+  // Full HTML
+  db_insert('wysiwyg')
+    ->fields(array('format', 'editor', 'settings'))
+    ->values(array('full_html', 'tinymce', serialize(array(
+      'buttons' => array(
+        'default' => array(
+          'bold' => 1,
+          'italic' => 1,
+          'bullist' => 1,
+          'numlist' => 1,
+          'link' => 1,
+          'unlink' => 1,
+          'image' => 1,
+          'blockquote' => 1,
+        ),
+        'font' => array(
+          'formatselect' => 1,
+        ),
+        'inlinepopups' => array(
+          'inlinepopups' => 1,
+        ),
+        'imce' => array(
+          'imce' => 1,
+        ),
+        'drupal' => array(
+          'break' => 1,
+        ),
+      ),
+      'block_formats' => "p,address,pre,h2,h3,h4,h5,h6,div",
+    ))))
+    ->execute();
 }
