@@ -43,7 +43,6 @@ dependencies[] = link
 ; Front-end
 dependencies[] = html5_tools
 dependencies[] = elements
-dependencies[] = modernizr
 
 ; WYSIWYG
 dependencies[] = wysiwyg
