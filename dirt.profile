@@ -259,4 +259,14 @@ function dirt_install() {
   // it in the open here
   variable_set('textcaptcha_cache_limit', 2); // 2 actually means 20... weird.
 
+  // Pathauto node settings
+  variable_set('pathauto_node_page_pattern', '[node:title]');
+  variable_set('pathauto_node_webform_pattern', '[node:title]');
+  variable_set('pathauto_node_pattern', '[node:content-type]/[node:title]');
+  // Pathauto puncuation settings (0 = Remove, 1 = Replace, 2 = Do Nothing)
+  variable_set('pathauto_punctuation_underscore', 1);
+  variable_set('pathauto_punctuation_hyphen', 1);
+  // Pathauto ignored words - set to none
+  variable_set('pathauto_ignore_words', '');
+
 }
