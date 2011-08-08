@@ -179,7 +179,6 @@ function dirt_install() {
   variable_set('securepages_ignore', SECUREPAGES_IGNORE);
 
   // Set up filesystem
-  variable_set('file_public_path', 'files');
   variable_set('file_temporary_path', '/tmp');
 
   // WYSIWYG Configuration
