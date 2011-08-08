@@ -103,9 +103,6 @@ projects[redirect][subdir] = contrib
 projects[metatags_quick][version] = 2.0
 projects[metatags_quick][type] = module
 projects[metatags_quick][subdir] = contrib
-projects[labjs][version] = 1.1
-projects[labjs][type] = module
-projects[labjs][subdir] = contrib
 projects[spamspan][version] = 1.1-beta1
 projects[spamspan][type] = module
 projects[spamspan][subdir] = contrib
@@ -120,14 +117,9 @@ projects[boron][version] = 1.1
 projects[asarko][type] = "theme"
 projects[asarko][download][type] = "git"
 projects[asarko][download][url] = "git://github.com/orangecoat/asarko.git"
-projects[skeleton][type] = "theme"
-projects[skeleton][download][type] = "git"
-projects[skeleton][download][url] = "git://github.com/orangecoat/skeleton.git"
 
 
 ; Libraries
 ; ---------
-libraries[labjs][download][type] = file
-libraries[labjs][download][url] = http://labjs.com/releases/LABjs-2.0.1.tar.gz
 libraries[tinymce][download][type] = file
 libraries[tinymce][download][url] = https://github.com/downloads/tinymce/tinymce/tinymce_3.4.4.zip

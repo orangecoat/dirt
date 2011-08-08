@@ -66,9 +66,6 @@ dependencies[] = metatags_quick
 dependencies[] = xmlsitemap_menu
 dependencies[] = xmlsitemap_node
 
-; Performance
-dependencies[] = labjs
-
 ; Misc
 dependencies[] = filefield_paths
 dependencies[] = logintoboggan
