@@ -166,13 +166,9 @@ function dirt_install() {
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
 
-  // Securepages
-  if (securepages_test()) {
-    variable_set('securepages_enable', 1);
-  }
-  else {
-    drupal_set_message("Securepages not enabled because this installation didn't pass the test. You may need to manually configure securepages from the admin UI", "warning");
-  }
+  // Disable securepages initially. The shovel script will ask whether it
+  // should be enabled or not.
+  variable_set('securepages_enable', 0);
   variable_set('securepages_switch', TRUE);
   variable_set('securepages_secure', 1); // 1 = Only secure securepages_pages
   variable_set('securepages_pages', SECUREPAGES_PAGES);
@@ -261,6 +257,7 @@ function dirt_install() {
   // to prompt the user for the textcaptcha API key so we don't have to store
   // it in the open here
   variable_set('textcaptcha_cache_limit', 2); // 2 actually means 20... weird.
+  variable_set('textcaptcha_api_key', '');
 
   // Pathauto node settings
   variable_set('pathauto_node_page_pattern', '[node:title]');
