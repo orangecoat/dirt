@@ -169,7 +169,7 @@ function dirt_install() {
   // Disable securepages initially. The shovel script will ask whether it
   // should be enabled or not.
   variable_set('securepages_enable', 0);
-  variable_set('securepages_switch', TRUE);
+  variable_set('securepages_switch', FALSE); // Don't switch back to regular http on unsecured pages
   variable_set('securepages_secure', 1); // 1 = Only secure securepages_pages
   variable_set('securepages_pages', SECUREPAGES_PAGES);
   variable_set('securepages_ignore', SECUREPAGES_IGNORE);
